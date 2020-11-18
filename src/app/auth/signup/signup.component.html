@@ -1,1 +1,50 @@
-<p>signup works!</p>
+<form [formGroup]="signupForm">
+  <div class="row">
+    <div class="col col-first">
+      <fieldset>
+        <div class="inline-block col-1-1">
+          <div class="field">
+            <app-input
+              [label]="'Username'"
+              [id]="'username'"
+              [control]="signupForm.controls.username"
+              [field]="formConfig.usernameConfig"
+            ></app-input>
+          </div>
+        </div>
+        <div class="inline-block col-1-1">
+          <div class="field">
+            <app-input
+              [label]="'Password'"
+              [id]="'password'"
+              [control]="signupForm.controls.password"
+              [field]="formConfig.passwordConfig"
+            ></app-input>
+          </div>
+        </div>
+
+        <div class="inline-block col-1-1">
+          <div class="field">
+            <app-input
+              [label]="'Confirm Password'"
+              [id]="'confirmPassword'"
+              [control]="signupForm.controls.confirmPassword"
+              [field]="formConfig.passwordConfirmationConfig"
+            ></app-input>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</form>
+
+<mat-hint
+  *ngIf="
+    signupForm.get('confirmPassword').touched &&
+    signupForm.hasError('passwordMatch') &&
+    signupForm.touched &&
+    signupForm.dirty
+  "
+  align="end"
+  >must match password</mat-hint
+>

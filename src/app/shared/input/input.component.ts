@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FieldConfig } from '../models';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-input',
@@ -6,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./input.component.scss']
 })
 export class InputComponent implements OnInit {
-
+  @Input() field: FieldConfig;
+  @Input() control :FormControl;
+  @Input() id ;
+  @Input() name ;
+  @Input() value='' ;
+  @Input() class='' ;
+  @Input() placeholder='' ;
+  @Input() inputType='text';
+  @Input() label;
   constructor() { }
 
   ngOnInit(): void {
   }
+  checkRequired(){
+    return  this.control.invalid
 
+  }
 }
