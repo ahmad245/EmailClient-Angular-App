@@ -1,0 +1,24 @@
+.docs-navbar-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    font-size: 1.4rem !important;
+  
+   
+  }
+  .docs-navbar-header a{
+    font-size: 1.3rem;
+  }
+  
+  .docs-navbar,
+  .docs-navbar-header {
+    background: #02abac;
+    height: 60px;
+  }
+  
+  .flex-spacer {
+    flex-grow: 1;
+   
+  }

@@ -1,0 +1,97 @@
+<nav class="docs-navbar-header" color="accent">
+  <a
+    class="mat-button mat-button-base"
+    mat-button
+    routerlink="/"
+    tabindex="0"
+    aria-disabled="false"
+    href="/"
+  >
+    <span class="mat-button-wrapper">
+      <mat-icon>event_note</mat-icon>
+      <span>Ahmad Blog</span>
+    </span>
+    <div class="mat-button-ripple mat-ripple" matripple=""></div>
+    <div class="mat-button-focus-overlay"></div>
+  </a>
+  <div class="flex-spacer"></div>
+  <!---->
+  <a
+    class="mat-button mat-button-base"
+    mat-button=""
+    tabindex="0"
+    aria-disabled="false"
+    routerLink=""
+  >
+    <span class="mat-button-wrapper">Home</span>
+    <div class="mat-button-ripple mat-ripple" matripple=""></div>
+    <div class="mat-button-focus-overlay"></div>
+  </a>
+  <a
+  class="mat-button mat-button-base"
+  mat-button
+  routerlink="guides"
+  tabindex="0"
+  aria-disabled="false"
+  routerLink="/inbox"
+  *ngIf="isAuth"
+>
+  <span class="mat-button-wrapper">inbox</span>
+  <div class="mat-button-ripple mat-ripple" matripple=""></div>
+  <div class="mat-button-focus-overlay"></div>
+</a>
+
+
+  <a
+    class="mat-button mat-button-base"
+    mat-button
+    routerlink="guides"
+    tabindex="0"
+    aria-disabled="false"
+    routerLink=""
+    *ngIf="!isAuth"
+  >
+    <span class="mat-button-wrapper">Sign up</span>
+    <div class="mat-button-ripple mat-ripple" matripple=""></div>
+    <div class="mat-button-focus-overlay"></div>
+  </a>
+  <a
+    class="mat-button mat-button-base"
+    mat-button
+  
+    tabindex="0"
+    aria-disabled="false"
+    routerLink="/signin"
+    *ngIf="!isAuth"
+    
+  >
+    <span class="mat-button-wrapper">Sign in</span>
+    <div class="mat-button-ripple mat-ripple" matripple=""></div>
+    <div class="mat-button-focus-overlay"></div>
+  </a>
+  <a *ngIf="isAuth"
+    class="mat-button mat-button-base"
+    mat-button
+   
+    tabindex="0"
+    aria-disabled="false"
+    routerLink="/signout"
+  >
+    <span class="mat-button-wrapper">Sign out</span>
+    <div class="mat-button-ripple mat-ripple" matripple=""></div>
+    <div class="mat-button-focus-overlay"></div>
+  </a>
+
+  <a
+    aria-label="GitHub Repository"
+    class="mat-button mat-button-base"
+    mat-button
+    tabindex="0"
+    aria-disabled="false"
+  >
+    <mat-icon>account_circle</mat-icon>
+    <span class="mat-button-wrapper">currentUser.email </span>
+    <div class="mat-button-ripple mat-ripple" matripple=""></div>
+    <div class="mat-button-focus-overlay"></div>
+  </a>
+</nav>

@@ -1,4 +1,4 @@
-<form [formGroup]="signupForm">
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
   <div class="row">
     <div class="col col-first">
       <fieldset>
@@ -28,7 +28,7 @@
             <app-input
               [label]="'Confirm Password'"
               [id]="'confirmPassword'"
-              [control]="signupForm.controls.confirmPassword"
+              [control]="signupForm.controls.passwordConfirmation"
               [field]="formConfig.passwordConfirmationConfig"
             ></app-input>
           </div>
@@ -36,11 +36,12 @@
       </fieldset>
     </div>
   </div>
+  <button mat-button color="primary" type="submit" >Signup</button>
 </form>
 
 <mat-hint
   *ngIf="
-    signupForm.get('confirmPassword').touched &&
+    signupForm.get('passwordConfirmation').touched &&
     signupForm.hasError('passwordMatch') &&
     signupForm.touched &&
     signupForm.dirty

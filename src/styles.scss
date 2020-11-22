@@ -103,3 +103,14 @@ nav.principale {
     width: 240px;
     transition: width 0.3s ease;
 }
+.mat-list-base .mat-list-item, .mat-list-base .mat-list-option {
+    display: block;
+    height: 48px;
+    -webkit-tap-highlight-color: transparent;
+    width: 100%;
+    padding: 0;
+    height: auto !important;
+    margin: 1rem 0;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
