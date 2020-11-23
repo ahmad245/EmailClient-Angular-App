@@ -1,3 +1,4 @@
+import { ComponentPortal } from '@angular/cdk/portal';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
@@ -12,12 +13,13 @@ export interface DialogData {
   styleUrls: ['./dialog.component.scss'],
 })
 export class DialogComponent implements OnInit {
+  portal: ComponentPortal<any>;
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.portal = new ComponentPortal(this.data.component);
   }
 
   onNoClick(): void {
