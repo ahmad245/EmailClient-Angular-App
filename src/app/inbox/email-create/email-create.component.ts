@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/shared/modals/dialog/dialog.component';
+import { NotFoundComponent } from '../not-found/not-found.component';
 
 @Component({
   selector: 'app-email-create',
@@ -17,7 +18,7 @@ export class EmailCreateComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogComponent, {
       width: '250px',
-      data: {name: this.name, animal: this.animal}
+      data: {component:NotFoundComponent}
     });
 
     dialogRef.afterClosed().subscribe(result => {
