@@ -1,24 +1,24 @@
-
- <mat-card class="example-card">
+<mat-card class="example-card">
     <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>{{email.from}}</mat-card-title>
-     
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{email.from}}</mat-card-title>
+
     </mat-card-header>
-   
+
     <mat-card-content>
-      <p>
-        {{email.subject}}
-      </p>
-      <p>
-          {{email.from}}
-      </p>
-      <p>
-          {{email.to}}
-      </p>
-      <p>
-          {{email.text}}
-      </p>
-      <div [innerHTML]="email.html"></div>
+        <p>
+            <strong>Subject</strong> : {{email.subject}}
+        </p>
+        <p>
+            <strong>From</strong> : {{email.from}}
+        </p>
+        <p>
+            <strong>To</strong> : {{email.to}}
+        </p>
+        <p>
+            <strong>Text</strong> : {{email.text}}
+        </p>
+        <strong>Html</strong> :
+        <div [innerHTML]="email.html"></div>
     </mat-card-content>
-  </mat-card>
+</mat-card>

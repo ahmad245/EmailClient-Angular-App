@@ -1,22 +1,26 @@
-<mat-list >
-    <mat-list-item *ngFor="let email of emails">
-     <a [routerLink]="email.id">
-        <mat-card class="example-card">
-            <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>{{email.from}}</mat-card-title>
-             
-            </mat-card-header>
-           
-            <mat-card-content>
-              <p>
-                {{email.subject}}
-              </p>
-            </mat-card-content>
-          </mat-card>
-     </a>  
-  
+<mat-list>
+    <mat-list-item *ngFor="let email of emails;let i=index">
+        <a [routerLink]="email.id" routerLinkActive="bg" #rla="routerLinkActive">
+
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <div mat-card-avatar class="example-header-image">
+                        <mat-icon *ngIf="rla.isActive">send</mat-icon>
+                    </div>
+
+                    <mat-card-title>{{email.from}}</mat-card-title>
+
+                </mat-card-header>
+
+                <mat-card-content>
+                    <p>
+                        {{email.subject}}
+                    </p>
+                </mat-card-content>
+            </mat-card>
+        </a>
+
     </mat-list-item>
-   
-    
-  </mat-list>
+
+
+</mat-list>

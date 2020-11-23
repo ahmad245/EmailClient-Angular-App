@@ -1,10 +1,8 @@
-<div class="fields">
-    <div class="col-2-5">
-        <app-email-index></app-email-index>
-    </div>
-    <div class="col-3-5">
+<div fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayout.md="column">
+    <app-email-index fxFlex="30%"></app-email-index>
+
+    <div fxFlex="70%" class="mt">
         <router-outlet></router-outlet>
     </div>
-  
-    
+
 </div>

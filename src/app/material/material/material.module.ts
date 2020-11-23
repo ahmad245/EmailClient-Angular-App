@@ -12,6 +12,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -30,7 +31,8 @@ import {MatCardModule} from '@angular/material/card';
     MatExpansionModule,
     MatMenuModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
   ],
   exports:[
     MatFormFieldModule,
@@ -44,7 +46,8 @@ import {MatCardModule} from '@angular/material/card';
     MatExpansionModule,
     MatMenuModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
   ]
 })
 export class MaterialModule { }

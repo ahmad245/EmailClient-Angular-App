@@ -5,6 +5,8 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 
 import {SharedModule} from './shared/shared.module';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
@@ -20,6 +22,8 @@ import { AuthHttpInterceptor } from './auth/auth-http-interceptor';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+
+    FlexLayoutModule,
 
     SharedModule,
     AuthModule,

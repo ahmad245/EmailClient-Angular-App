@@ -14,6 +14,7 @@ export class EmailIndexComponent implements OnInit {
 
   ngOnInit(): void {
     this.eS.get().subscribe((emails)=>{
+     console.log(emails);
      
       this.emails=emails
     })
