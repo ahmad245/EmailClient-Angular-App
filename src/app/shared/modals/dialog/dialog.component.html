@@ -1,9 +1,8 @@
 <!-- <ng-template [cdkPortalOutlet]="portal"></ng-template> -->
-<ng-container *ngComponentOutlet="data.component"></ng-container>
+
 <h1 mat-dialog-title>Hi {{data.name}}</h1>
 <div mat-dialog-content>
-    <p>What's your favorite animal?</p>
-   <input type="text">
+    <ng-container *ngComponentOutlet="data.component"></ng-container>
 </div>
 <div mat-dialog-actions>
     <button mat-button (click)="onNoClick()">No Thanks</button>

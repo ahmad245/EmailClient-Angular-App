@@ -14,7 +14,10 @@ export class DialogComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
     @Optional()  @Inject(MAT_DIALOG_DATA) public data: any
-  ) {}
+  ) {
+   
+    
+  }
   ngOnInit(): void {
     this.portal = new ComponentPortal(this.data.component);
   }
