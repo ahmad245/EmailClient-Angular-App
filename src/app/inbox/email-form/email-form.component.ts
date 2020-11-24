@@ -21,20 +21,20 @@ export class EmailFormComponent implements OnInit {
   ngOnInit(): void {
     this.email = this.eS.formData.getValue();
 
-    const { from, subject, to, text, html } = this.email;
+    const { from, subject, to, text } = this.email;
     this.emailForm = new FormGroup({
       from: new FormControl(from),
       subject: new FormControl(subject),
       to: new FormControl(to),
       text: new FormControl(text),
-      html: new FormControl(html),
+     
     });
     this.eS.formData.subscribe((email) => {
       this.emailForm.setControl('form', new FormControl(email.from));
       this.emailForm.setControl('subject', new FormControl(email.subject));
       this.emailForm.setControl('to', new FormControl(email.to));
       this.emailForm.setControl('text', new FormControl(email.text));
-      this.emailForm.setControl('html', new FormControl(email.html));
+     
     });
   }
   onSubmit() {

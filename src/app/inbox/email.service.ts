@@ -30,4 +30,7 @@ export class EmailService {
   setFormData(obj:IEmailSummary){
     this.formData.next(obj);
   }
+  sendEmail(email){
+    return this.http.post(`${rootUrl}/emails`,email);
+  }
 }
