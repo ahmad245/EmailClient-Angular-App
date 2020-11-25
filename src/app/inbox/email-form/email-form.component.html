@@ -1,9 +1,18 @@
 <form [formGroup]="emailForm" (ngSubmit)="onSubmit()">
-    <app-input [control]="emailForm.controls.from" [label]="'From'"></app-input>
-    <app-input [control]="emailForm.controls.subject" [label]="'Subject'"></app-input>
-    <app-input [control]="emailForm.controls.to" [label]="'To'"></app-input>
+    <app-dialog-container>
+        <ng-container content>
+            <app-input [control]="emailForm.controls.from" [label]="'From'"></app-input>
+            <app-input [control]="emailForm.controls.subject" [label]="'Subject'"></app-input>
+            <app-input [control]="emailForm.controls.to" [label]="'To'"></app-input>
+            <app-input controlType='textarea' [control]="emailForm.controls.text" [label]="'content'"></app-input>
+        </ng-container>
+    </app-dialog-container>
 
-    <button type="submit">submit</button>
+    <app-dialog-container>
+        <ng-container footer>
+            <button type="button" mat-button>No Thanks</button>
 
-    <button>add</button>
+            <button type="submit" mat-button cdkFocusInitial>Ok</button>
+        </ng-container>
+    </app-dialog-container>
 </form>

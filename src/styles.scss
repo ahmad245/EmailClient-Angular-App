@@ -3,7 +3,6 @@
 @import './sass/css/style.scss';
 //@import "~@ng-select/ng-select/themes/default.theme.css";
 // // ... or 
-
 html,
 body {
     height: 100%;
@@ -79,14 +78,10 @@ body {
     top: -42px;
 }
 
-
-
 .mat-elevation-z4 {
-
     transition: left 0.5s ease;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     @include box-shadow-material();
-  
     // box-shadow:none;
     // @include box-shadow-material();
     // box-shadow-left:none ;
@@ -103,7 +98,9 @@ nav.principale {
     width: 240px;
     transition: width 0.3s ease;
 }
-.mat-list-base .mat-list-item, .mat-list-base .mat-list-option {
+
+.mat-list-base .mat-list-item,
+.mat-list-base .mat-list-option {
     display: block;
     height: 48px;
     -webkit-tap-highlight-color: transparent;
@@ -112,5 +109,18 @@ nav.principale {
     height: auto !important;
     margin: 1rem 0;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-card-title {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}

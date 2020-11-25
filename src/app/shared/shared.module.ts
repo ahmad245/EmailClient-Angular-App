@@ -7,13 +7,15 @@ import { MaterialModule } from './../material/material/material.module';
 import {RouterModule} from '@angular/router';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { DialogComponent } from './modals/dialog/dialog.component';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DialogContainerComponent } from './modals/dialog-container/dialog-container.component';
 
 
 
 
 
 @NgModule({
-  declarations: [InputComponent, HeaderComponent, DialogComponent],
+  declarations: [InputComponent, HeaderComponent, DialogComponent, DialogContainerComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -21,6 +23,10 @@ import { DialogComponent } from './modals/dialog/dialog.component';
     RouterModule,
     FlexLayoutModule
   ],
-  exports:[InputComponent,MaterialModule,HeaderComponent,FlexLayoutModule,DialogComponent]
+  exports:[InputComponent,MaterialModule,HeaderComponent,FlexLayoutModule,DialogComponent,DialogContainerComponent],
+  providers:[
+    { provide: MatDialogRef, useValue: {} },
+	{ provide: MAT_DIALOG_DATA, useValue: [] }
+  ]
 })
 export class SharedModule { }

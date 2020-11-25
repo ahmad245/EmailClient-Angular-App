@@ -1,30 +1,29 @@
-<div fxLayout="column">
-    <app-email-create class="create"></app-email-create>
+<app-email-create class="create">
+</app-email-create>
 
-    <mat-list>
-        <mat-list-item *ngFor="let email of emails;let i=index">
-            <a [routerLink]="email.id" routerLinkActive="bg" #rla="routerLinkActive">
+<div class="collection" fxLayout="column ">
 
-                <mat-card class="example-card">
-                    <mat-card-header>
-                        <div mat-card-avatar class="example-header-image">
-                            <mat-icon *ngIf="rla.isActive">send</mat-icon>
-                        </div>
+    <a *ngFor="let email of emails;let i=index" class="collection-item" [routerLink]="email.id" routerLinkActive="bg" #rla="routerLinkActive">
 
-                        <mat-card-title>{{email.from}}</mat-card-title>
+        <mat-card fxLayout="column ">
+            <mat-card-header fxLayout="row ">
+                <div mat-card-avatar class="example-header-image">
+                    <mat-icon *ngIf="rla.isActive">send</mat-icon>
+                </div>
 
-                    </mat-card-header>
+                <mat-card-title>{{email.from}}</mat-card-title>
 
-                    <mat-card-content>
-                        <p>
-                            {{email.subject}}
-                        </p>
-                    </mat-card-content>
-                </mat-card>
-            </a>
+            </mat-card-header>
 
-        </mat-list-item>
+            <mat-card-content>
+                <p>
+                    {{email.subject}}
+                </p>
+            </mat-card-content>
+        </mat-card>
+    </a>
 
 
-    </mat-list>
+
+
 </div>

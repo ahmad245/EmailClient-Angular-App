@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { EMPTY, Subscription } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 import { DialogComponent } from 'src/app/shared/modals/dialog/dialog.component';
 import { MyDialogServiceService } from 'src/app/shared/my-dialog-service.service';
 import { EmailFormComponent } from '../email-form/email-form.component';
@@ -11,15 +13,28 @@ import { IEmailSummary } from '../interfaces/email';
   templateUrl: './email-reply.component.html',
   styleUrls: ['./email-reply.component.scss']
 })
-export class EmailReplyComponent implements OnInit {
-
+export class EmailReplyComponent implements OnInit,OnDestroy {
+  subscriptions=new Subscription();
   @Input() email:IEmailSummary;
  
   constructor(private dS:MyDialogServiceService,private eS:EmailService) {}
+ 
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
+ this.subscriptions.add(
+   this.eS.formReply
+   .pipe(
+     switchMap((data)=>{
+       if(data)return this.eS.sendEmail(data);
+       return EMPTY
+       
+     })
+   )
+   .subscribe((data)=>{
+     console.log(data);
+     
+   })
+ )
     
   }
   openDialog(): void {
@@ -37,6 +52,8 @@ export class EmailReplyComponent implements OnInit {
     
   }
 
- 
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe()
+  }
 
 }

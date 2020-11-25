@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { IEmail, IEmailSummary } from '../interfaces/email';
 
 @Component({
@@ -7,15 +8,21 @@ import { IEmail, IEmailSummary } from '../interfaces/email';
   templateUrl: './email-show.component.html',
   styleUrls: ['./email-show.component.scss']
 })
-export class EmailShowComponent implements OnInit {
+export class EmailShowComponent implements OnInit , OnDestroy {
+  subscriptions = new Subscription();
 
   email:IEmailSummary;
   constructor(private route:ActivatedRoute) { }
+ 
 
   ngOnInit(): void {
-    this.route.data.subscribe(({email})=>{
+  this.subscriptions.add(
+      this.route.data.subscribe(({email})=>{
       this.email=email
     })
+  )
   }
-
+  ngOnDestroy(): void {
+   this.subscriptions.unsubscribe();
+  }
 }

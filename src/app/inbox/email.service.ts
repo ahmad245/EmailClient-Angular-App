@@ -10,14 +10,9 @@ const rootUrl="https://api.angular-email.com";
 })
 
 export class EmailService {
-  formData=new BehaviorSubject<IEmailSummary>({
-    id:'',
-    from:'',
-    subject:'',
-    to:'',
-    text:'',
-    html:''
-  })
+  formData=new BehaviorSubject<IEmailSummary>(null);
+  formCreate=new BehaviorSubject<IEmailSummary>(null);
+  formReply=new BehaviorSubject<IEmailSummary>(null);
   
   constructor(private http:HttpClient) { }
 

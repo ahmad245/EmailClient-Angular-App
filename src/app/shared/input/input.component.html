@@ -1,15 +1,8 @@
 <label *ngIf="label" [for]="id">{{label}}</label>
-<input 
-[placeholder]="placeholder" 
-[id]="id" 
-[value]="value" 
-[required]="checkRequired()" 
-[type]="field ? field.inputType : 'text'" 
-[formControl]="control" 
-[ngClass]="{'invalid':control.invalid && control.touched && control.dirty}"
+<input *ngIf="controlType==='text'" [placeholder]="placeholder" [id]="id" [value]="value" [required]="checkRequired()" [type]="field ? field.inputType : 'text'" [formControl]="control" [ngClass]="{'invalid':control.invalid && control.touched && control.dirty}">
+<textarea *ngIf="controlType !== 'text'" [ngStyle]="{'height':height}" [placeholder]="placeholder" [id]="id" [value]="value" [required]="checkRequired()" [formControl]="control" [ngClass]="{'invalid':control.invalid && control.touched && control.dirty}">
 
->
-
+</textarea>
 <ng-container *ngIf="field">
     <ng-container *ngFor="let validation of field.validations">
         <mat-hint *ngIf="control.hasError(validation.name) && control.touched && control.dirty" align="end">{{validation.message}}</mat-hint>

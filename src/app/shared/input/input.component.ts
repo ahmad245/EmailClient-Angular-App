@@ -17,6 +17,8 @@ export class InputComponent implements OnInit {
   @Input() placeholder='' ;
   @Input() inputType='text';
   @Input() label;
+  @Input() controlType='text';
+  @Input() height= '100px';
   constructor() { }
 
   ngOnInit(): void {
